@@ -63,26 +63,27 @@ Cs_lasso_cv <- cv.glmnet(
   alpha = 1
 )
 # plotting the graph
-#plot(Cs_lasso_cv)
+plot(Cs_lasso_cv)
 # optimal lambda value
 Cs_lasso_cv$lambda.min
 ```
-The best/optimal value for this lasso model is 0.001524481
+**The best/optimal value for this lasso model is 0.001524481**
 
 # What is the coefficient for the price (normalized) attribute in the best model (i.e. model with the optimal lambda)?
 ```{r warning=FALSE, error=FALSE, message=FALSE}
 # identifying the coefficients for the best model with the optimal lambda value
 coef(Cs_lasso_cv, s = "lambda.min")
 ```
-Coefficient for the Price is -0.4793834
+**Coefficient for the Price is -0.4793834**
 
 # How many attributes remain in the model if lambda is set to 0.01? How that number changes if lambda is increased to 0.1? Do you expect more variables to stay in the model (i.e., to have non-zero coefficients) as we increase lambda? 
 ```{r warning=FALSE, error=FALSE, message=FALSE}
 coef(Cs_lasso_cv, s = 0.01)
 coef(Cs_lasso_cv, s = 0.1)
 ```
-*1. Lambda at 0.01:* All the attributes still remain in the model.
-*2. Lambda at 0.1:* Population and Education are dropped from the model. The rest remain in the model.
+**1. Lambda at 0.01:** All the attributes still remain in the model. \  
+
+**2. Lambda at 0.1:** Population and Education are dropped from the model. The rest remain in the model.
 As the value of lambda increases, more and more variables/attributes start to drop off (i.e., there will be less variables)
 
 # Build an elastic-net model with alpha set to 0.6. What is the best value of lambda for such a model?
@@ -96,4 +97,4 @@ Cs_elastic_cv <- cv.glmnet(
 )
 Cs_elastic_cv$lambda.min
 ```
-The optimal/best lambda for the elastic-net model is 0.002315083
+**The optimal/best lambda for the elastic-net model is 0.002315083**
