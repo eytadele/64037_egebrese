@@ -100,3 +100,4 @@ Cs_elastic_cv <- cv.glmnet(
 Cs_elastic_cv$lambda.min
 ```
 **The optimal/best lambda for the elastic-net model is 0.002315083**
+
